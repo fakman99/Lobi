@@ -28,13 +28,14 @@ db.sequelize.sync({force: true}).then(() => {
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to Lobby API." });
 });
 
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/activity.routes')(app);
+require('./app/routes/lobby.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

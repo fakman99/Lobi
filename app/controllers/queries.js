@@ -3,10 +3,14 @@ const getUserByIDQuery = 'SELECT * FROM users WHERE id = $1';
 
 const getAllActivityQuery = 'SELECT * FROM activities';
 const getActivityByIDQuery = 'SELECT * FROM activities WHERE id = $1';
-
+const getAllLobbyQuery = 'SELECT * FROM lobbys'
+const getLobbyByIDQuery = 'SELECT * FROM lobbys WHERE id = $1';
 module.exports = {
     getAllUserQuery,
     getUserByIDQuery,
     getAllActivityQuery,
-    getActivityByIDQuery
+    getActivityByIDQuery,
+    getAllLobbyQuery,
+    getLobbyByIDQuery,
+
 }

@@ -21,7 +21,7 @@ exports.createActivity = (req, res) => {
 
 
 exports.activityBoard = (req, res) => {
-    pool.query(queries.getAllUserQuery,(error,results)=>{
+    pool.query(queries.getAllActivityQuery,(error,results)=>{
       if(error)throw error;
       res.status(200).json(results.rows);
   });
@@ -29,7 +29,7 @@ exports.activityBoard = (req, res) => {
 
 exports.getActivityByID = (req, res) => {
   const id = req.params.id;
-  pool.query(queries.getUserByIDQuery,[id],(error,results)=>{
+  pool.query(queries.getActivityByIDQuery,[id],(error,results)=>{
       if(error)
       {
         res.status(422).send("Wrong ID");
