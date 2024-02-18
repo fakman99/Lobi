@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
     description: {
       type: Sequelize.STRING
     },
-    profilPicture: {
+    picture: {
       type: Sequelize.STRING
     }
   });

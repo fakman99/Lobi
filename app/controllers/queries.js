@@ -1,6 +1,7 @@
 const getAllUserQuery = 'SELECT * FROM users';
 const getUserByIDQuery = 'SELECT * FROM users WHERE id = $1';
 const removeUser = "DELETE FROM users WHERE id = $1";
+const updatePicture = "UPDATE users SET picture = $2 WHERE id = $1";
 
 const getAllActivityQuery = 'SELECT * FROM activities';
 const getActivityByIDQuery = 'SELECT * FROM activities WHERE id = $1';
@@ -13,6 +14,7 @@ module.exports = {
     getActivityByIDQuery,
     getAllLobbyQuery,
     getLobbyByIDQuery,
-    removeUser
+    removeUser,
+    updatePicture
 
 }

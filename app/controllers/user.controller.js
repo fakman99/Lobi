@@ -8,36 +8,50 @@ exports.allAccess = (req, res) => {
 };
 
 exports.userBoard = (req, res) => {
-    pool.query(queries.getAllUserQuery,(error,results)=>{
-      if(error)throw error;
-      res.status(200).json(results.rows);
+  pool.query(queries.getAllUserQuery, (error, results) => {
+    if (error) throw error;
+    res.status(200).json(results.rows);
   });
 };
 
 exports.getUserByID = (req, res) => {
   const id = req.params.id;
-  pool.query(queries.getUserByIDQuery,[id],(error,results)=>{
-      if(error)
-      {
-        res.status(422).send("Wrong ID");
-      }
-      else {
-          res.status(200).json(results.rows);
-      }
+  pool.query(queries.getUserByIDQuery, [id], (error, results) => {
+    if (error) {
+      res.status(422).send("Wrong ID");
+    }
+    else {
+      res.status(200).json(results.rows);
+    }
 
   });
 };
 
 exports.removeUserById = (req, res) => {
   const id = req.params.id;
-  pool.query(queries.removeUser,[id],(error,results)=>{
-      if(error)
-      {
-        res.status(422).send(error.message);
-      }
-      else {
-          res.status(200).json(results.rows);
-      }
+  pool.query(queries.removeUser, [id], (error, results) => {
+    if (error) {
+      res.status(422).send(error.message);
+    }
+    else {
+      res.status(200).json(results.rows);
+    }
+
+  });
+};
+
+
+exports.changeProfilePic = (req, res) => {
+  const id = req.params.id;
+  const {link} = req.body;
+
+  pool.query(queries.updatePicture, [id, link], (error, results) => {
+    if (error) {
+      res.status(422).send(error.message);
+    }
+    else {
+      res.status(200).json(link);
+    }
 
   });
 };

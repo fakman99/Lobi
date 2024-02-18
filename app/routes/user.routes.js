@@ -31,6 +31,12 @@ module.exports = function(app) {
     controller.removeUserById
   );
 
+  app.patch(
+    "/api/v1/user/:id/profile-picture",
+    [authJwt.verifyToken],
+    controller.changeProfilePic
+  );
+
   app.get(
     "/api/v1/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
