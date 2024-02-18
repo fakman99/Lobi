@@ -24,6 +24,12 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     controller.getUserByID
   );
+  
+  app.delete(
+    "/api/v1/user/:id",
+    [authJwt.verifyToken],
+    controller.removeUserById
+  );
 
   app.get(
     "/api/v1/admin",

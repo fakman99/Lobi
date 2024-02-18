@@ -28,6 +28,19 @@ exports.getUserByID = (req, res) => {
   });
 };
 
+exports.removeUserById = (req, res) => {
+  const id = req.params.id;
+  pool.query(queries.removeUser,[id],(error,results)=>{
+      if(error)
+      {
+        res.status(422).send(error.message);
+      }
+      else {
+          res.status(200).json(results.rows);
+      }
+
+  });
+};
 
 exports.adminBoard = (req, res) => {
   res.status(200).send("Admin Content.");
