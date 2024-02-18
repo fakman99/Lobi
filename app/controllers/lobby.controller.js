@@ -21,8 +21,9 @@ exports.createLobby = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 
-    res.send({ message: "Lobby registered successfully!" });
+              res.status(200).json(res.rows);
 
+  
 
 };
 

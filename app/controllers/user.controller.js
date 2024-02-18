@@ -63,3 +63,30 @@ exports.adminBoard = (req, res) => {
 exports.moderatorBoard = (req, res) => {
   res.status(200).send("Moderator Content.");
 };
+
+
+exports.getUserLobbysByID = (req, res) => {
+  const id = req.params.id;
+  pool.query(queries.getUserLobbyByIDQuery, [id], (error, results) => {
+    if (error) {
+      res.status(422).send("Wrong ID");
+    }
+    else {
+      res.status(200).json(results.rows);
+    }
+
+  });
+};
+
+exports.getUserRatingsByID = (req, res) => {
+  const id = req.params.id;
+  pool.query(queries.getUserRatingsByIDQuery, [id], (error, results) => {
+    if (error) {
+      res.status(422).send("Wrong ID");
+    }
+    else {
+      res.status(200).json(results.rows);
+    }
+
+  });
+};

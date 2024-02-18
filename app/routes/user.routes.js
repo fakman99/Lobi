@@ -24,6 +24,18 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     controller.getUserByID
   );
+
+  app.get(
+    "/api/v1/user/:id/lobbys",
+    [authJwt.verifyToken],
+    controller.getUserLobbysByID
+  );
+
+  app.get(
+    "/api/v1/user/:id/ratings",
+    [authJwt.verifyToken],
+    controller.getUserRatingsByID
+  );
   
   app.delete(
     "/api/v1/user/:id",
